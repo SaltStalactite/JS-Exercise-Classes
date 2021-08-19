@@ -42,9 +42,31 @@ class Airplane {
 */
 
 class Person {
-  
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+    this.stomach = [];
+  }
+  eat(food) {
+    if (this.stomach.length < 10) {
+      this.stomach.push(food);
+    }
+    else {
+      return `Too full to eat anymore!`
+    }
+  }
+  poop() {
+    this.stomach = [];
+  }
+  toString() {
+    return `${this.name}, ${this.age}`;
+  }
 }
-
+const bob = new Person('Bob', 21);
+bob.eat('Burger');
+console.log('task 1', bob.stomach);
+bob.poop();
+console.log('task 1', bob.toString());
 /*
   TASK 2
     - Write a Car class whose constructor initializes `model` and `milesPerGallon` from arguments.
@@ -60,7 +82,7 @@ class Person {
 */
 
 class Car {
-  
+
 }
 
 /*
@@ -76,7 +98,7 @@ class Car {
         + {name} and {location} of course come from the instance's own properties.
 */
 class Lambdasian {
-  
+
 }
 
 /*
@@ -112,7 +134,7 @@ class Instructor {
         + `sprintChallenge` similar to PRAssignment but returns `student.name has begun sprint challenge on {subject}`
 */
 class Student {
-   
+
 }
 
 /*
@@ -129,7 +151,7 @@ class Student {
         + `debugsCode` a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
 */
 class ProjectManager {
-   
+
 }
 /*
   STRETCH PROBLEM (no tests!)
@@ -143,7 +165,7 @@ class ProjectManager {
 
 //End of Challenge
 /* 🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑 Please do not modify anything below this line 🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑 */
-function foo(){
+function foo() {
   return 'bar';
 }
 
