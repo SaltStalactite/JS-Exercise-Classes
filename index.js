@@ -82,9 +82,37 @@ console.log('task 1', bob.toString());
 */
 
 class Car {
-
+  constructor(model, milesPerGallon) {
+    this.model = model;
+    this.milesPerGallon = milesPerGallon;
+    this.tank = 0;
+    this.odometer = 0;
+  }
+  fill(gallons) {
+    this.tank = this.tank + gallons;
+  }
+  drive(distance) {
+    let fuelUsed = distance / this.milesPerGallon;
+    let range = this.tank * this.milesPerGallon;
+    if (range > distance) {
+      this.odometer = this.odometer + distance;
+      this.tank = this.tank - fuelUsed;
+    }
+    else if (distance > range) {
+      this.odometer = this.odometer + range;
+      this.tank = 0;
+      return `I ran out of fuel at ${this.odometer} miles!`
+    }
+    return this.info();
+  }
+  info() {
+    return `model: ${this.model}, MPG: ${this.milesPerGallon}, tank: ${this.tank}, odometer: ${this.odometer}`
+  }
 }
-
+const toyota = new Car('Corolla', 30);
+toyota.fill(12);
+toyota.drive(200);
+console.log('task 2', toyota.info());
 /*
   TASK 3
     - Write a Lambdasian class.
