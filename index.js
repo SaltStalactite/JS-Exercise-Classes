@@ -126,9 +126,17 @@ console.log('task 2', toyota.info());
         + {name} and {location} of course come from the instance's own properties.
 */
 class Lambdasian {
-
+  constructor(attributes) {
+    this.name = attributes.name;
+    this.age = attributes.age;
+    this.location = attributes.location
+  }
+  speak() {
+    return `Hello my name is ${this.name}, I am from ${this.location}`
+  }
 }
-
+const john = new Lambdasian({ name: 'John', age: 30, location: 'Albany' });
+console.log('task 3', john.speak());
 /*
   TASK 4
     - Write an Instructor class extending Lambdasian.
